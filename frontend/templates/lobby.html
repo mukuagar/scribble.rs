@@ -10,6 +10,8 @@
     <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/base.css" />
     <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/lobby.css" />
     <link rel="icon" type="image/png" href="{{.RootPath}}/resources/favicon.png" />
+    <script src="https://binaries.webex.com/static-content-pipeline/webex-embedded-app/v1/webex-embedded-app-sdk.js"
+            defer></script>
 </head>
 
 <body>
@@ -399,6 +401,7 @@
         String.prototype.format = function() {
             return [...arguments].reduce((p,c) => p.replace(/%s/,c), this);
         };
+        var app = null; // Let's name our instance of the application "app"
 
         let socketIsConnecting = false;
         let hasSocketEverConnected = false;
@@ -907,6 +910,12 @@
         }
 
         function startGame() {
+            app = new window.Webex.Application(); // Let's name our instance of the application "app"
+            /**
+             * When the app's onReady() promise resolves, we're ready to begin:
+             */
+            app.onReady().then(() => log('onReady()', {message:'The app is ready.'})); // This fires once the app is ready
+
             socket.send(JSON.stringify({
                 type: "start",
             }));
