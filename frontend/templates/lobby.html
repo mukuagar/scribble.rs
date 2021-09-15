@@ -914,8 +914,9 @@
             /**
              * When the app's onReady() promise resolves, we're ready to begin:
              */
-            app.onReady().then(() => log('onReady()', {message:'The app is ready.'})); // This fires once the app is ready
-
+            app.onReady().then(() => {
+                handleSetShare()
+                log('onReady()', {message:'The app is ready.'})}); // This fires once the app is ready
             socket.send(JSON.stringify({
                 type: "start",
             }));
@@ -1788,6 +1789,22 @@
             //We never want transparency, therefore alpha is always 255.
             imageData.data[offset + 3] = 255;
         }
+
+        /**
+        * When we want to share a URL with participants, we can set it using setShareURL(url).
+        * For our UI, this handles the button click, and sets the Participant's view.
+        */
+        function handleSetShare(){
+
+            console.log('function handleSetShare() called.');
+
+            var url = window.location.href;
+
+            app.setShareUrl(url, url, "Scribble", "");
+            log('setShareUrl()', {message: 'Shared the following URL with the participant: ', url: url});
+
+        } // function handleSetShare()
+
     </script>
 </body>
 
