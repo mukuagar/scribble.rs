@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/base.css" />
     <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/lobby.css" />
     <link rel="icon" type="image/png" href="{{.RootPath}}/resources/favicon.png" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
     <script src="https://binaries.webex.com/static-content-pipeline/webex-embedded-app/v1/webex-embedded-app-sdk.js"
             defer></script>
 </head>
@@ -41,11 +42,11 @@
                             title="{{.Translation.Get "change-your-name"}}">
                             <img src="{{.RootPath}}/resources/user.svg" class="header-button-image" />
                         </button>
-                        <button onclick="toggleFullscreen()" class="dialog-button header-button"
+                        <!-- <button onclick="toggleFullscreen()" class="dialog-button header-button"
                             alt="{{.Translation.Get "toggle-fullscreen"}}"
                             title="{{.Translation.Get "toggle-fullscreen"}}">
                             <img src="{{.RootPath}}/resources/fullscreen.svg" class="header-button-image" />
-                        </button>
+                        </button> -->
                     </div>
                     <div id="word-container"></div>
                     <div>
@@ -664,13 +665,13 @@
             namechangeField.value = name;
         }
 
-        function toggleFullscreen() {
-            if (document.fullscreen) {
-                document.exitFullscreen();
-            } else {
-                document.body.requestFullscreen();
-            }
-        }
+        // function toggleFullscreen() {
+        //     if (document.fullscreen) {
+        //         document.exitFullscreen();
+        //     } else {
+        //         document.body.requestFullscreen();
+        //     }
+        // }
 
         function showLobbySettingsDialog() {
             lobbySettingsDialog.style.visibility = "visible";

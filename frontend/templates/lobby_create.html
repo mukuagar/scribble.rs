@@ -9,13 +9,14 @@
     <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/base.css"/>
     <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/lobby_create.css"/>
     <link rel="icon" type="image/png" href="{{.RootPath}}/resources/favicon.png"/>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
     <div class="content-wrapper">
     <noscript><span class="noscript">{{.Translation.Get "requires-js"}}</span></noscript>
 
-    <h1>Scribble.rs</h1>
+    <img id="scribble-logo" src="{{.RootPath}}/resources/scribble_new_123.png">
 
     <div class="tab-header">
         <label for="create-lobby-tab-button">
@@ -23,11 +24,11 @@
                 type="radio" onclick="openTab('create-lobby')" name="tab" checked>
             <div class="tab-label">{{.Translation.Get "create-lobby"}}</div>
         </label>
-        <label for="join-lobby-tab-button">
+        <!-- <label for="join-lobby-tab-button">
             <input id="join-lobby-tab-button" class="custom-check-or-radio tab-button"
                 type="radio" onclick="openTab('join-lobby')" name="tab">
             <div class="tab-label">{{.Translation.Get "join-lobby"}}</div>
-        </label>
+        </label> -->
     </div>
 
     <div id="create-lobby" class="tab-content">
@@ -75,17 +76,12 @@
                         <input style="flex: 1;" type="range" name="custom_words_chance" min="1" max="100" value="{{.CustomWordsChance}}">
                         100%
                     </div>
-                    <details class="advanced-section">
-                        <summary>{{.Translation.Get "advanced-settings"}}</summary>
-                        <div class="input-container">
-                            <b>{{.Translation.Get "players-per-ip-limit-setting"}}</b>
-                            <input class="input-item" type="number" name="clients_per_ip_limit" min="{{.MinClientsPerIPLimit}}"
-                            max="{{.MaxClientsPerIPLimit}}" value="{{.ClientsPerIPLimit}}"/>
-                            <b>{{.Translation.Get "enable-votekick-setting"}}</b>
-                            <input class="input-item" type="checkbox" name="enable_votekick" value="true"
-                            {{if eq .EnableVotekick "true"}}checked{{end}}/>
-                        </div>
-                    </details>
+                    <b>{{.Translation.Get "players-per-ip-limit-setting"}}</b>
+                    <input class="input-item" type="number" name="clients_per_ip_limit" min="{{.MinClientsPerIPLimit}}"
+                    max="{{.MaxClientsPerIPLimit}}" value="{{.ClientsPerIPLimit}}"/>
+                    <b>{{.Translation.Get "enable-votekick-setting"}}</b>
+                    <input class="input-item" type="checkbox" name="enable_votekick" value="true"
+                    {{if eq .EnableVotekick "true"}}checked{{end}}/>
                     <button type="submit" form="lobby-create" style="grid-column-start: 1; grid-column-end: 3;">
                             {{.Translation.Get "create-lobby"}}
                     </button>

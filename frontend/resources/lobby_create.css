@@ -9,7 +9,7 @@
 
 .content-container {
     display: block;
-    background-color: rgb(250, 192, 202);
+    background-color: #3d475c;
     padding: 1rem 3rem 1rem 3rem;
 }
 
@@ -31,7 +31,7 @@
 
 .tab-header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     margin: 0 1rem 0 1rem;
 }
 
@@ -44,8 +44,9 @@
 }
 
 .tab-button:checked + .tab-label {
-    background-color: rgb(179, 224, 241);
-    border-bottom: 0.3rem solid rgb(102, 102, 212);
+    background-color: #3d475c;
+    border-bottom: 0.3rem solid #5C527F;
+    color: #3d475c;
     padding: 1rem;
 }
 
@@ -53,11 +54,25 @@
     flex-direction: column;
     display: none;
     border: none;
-    background-color: white;
+    background-color: #272838;
+    background-image: url("pacman.png");
+    background-repeat: repeat;
     flex: 1 1;
     margin: 0 1rem 1rem 1rem;
     padding: 1rem;
     overflow: auto;
+}
+
+#scribble-logo {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    width: 22%;
+    height: 20%;
+    padding-bottom: 15px;
+    padding-top: 15px;
 }
 
 /* display: block causes the element to be visible, since the default value is none */
